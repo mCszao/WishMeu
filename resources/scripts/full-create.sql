@@ -1,0 +1,39 @@
+CREATE DATABASE IF NOT EXISTS WHISMEU;
+USE WISHMEU;
+CREATE TABLE categories (
+id INT NOT NULL AUTO_INCREMENT,
+category_name VARCHAR (100) NOT NULL,
+category_desc VARCHAR(255) NULL,
+PRIMARY KEY(id),
+UNIQUE KEY(category_name)
+);
+
+CREATE TABLE lists (
+id INT NOT NULL AUTO_INCREMENT,
+list_name VARCHAR(100) NOT NULL,
+list_desc VARCHAR(255) NULL,
+PRIMARY KEY(id)
+);
+
+CREATE TABLE items (
+id INT NOT NULL AUTO_INCREMENT,
+item_name VARCHAR(255) NOT NULL,
+observations VARCHAR(255) NULL,
+min_value DOUBLE (8,2) NOT NULL DEFAULT 0,
+max_value DOUBLE (8,2) NOT NULL DEFAULT 0,
+category_id INT NOT NULL,
+PRIMARY KEY(id)
+);
+
+ALTER TABLE items ADD FOREIGN KEY (category_id) REFERENCES categories(id);
+
+CREATE TABLE item_to_list (
+id INT NOT NULL AUTO_INCREMENT,
+id_list INT NOT NULL,
+id_item INT NOT NULL,
+conclued BIT DEFAULT 0,
+PRIMARY KEY(id)
+);
+
+ALTER TABLE item_to_list ADD FOREIGN KEY(id_list) REFERENCES lists(id);
+ALTER TABLE item_to_list ADD FOREIGN KEY(id_item) REFERENCES items(id);
