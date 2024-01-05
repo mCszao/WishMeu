@@ -8,10 +8,11 @@ class WishList {
     private $desc;
     private $items;
 
-    public function __constructor($id, $name, $desc){
+    public function __constructor($id, $name, $desc, $items){
         $this->id = $id;
         $this->name = $name;
         $this->desc = $desc;
+        $this->items = $items;
     }
 
     public function getId(){
