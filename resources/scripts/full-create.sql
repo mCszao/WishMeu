@@ -8,7 +8,7 @@ PRIMARY KEY(id),
 UNIQUE KEY(category_name)
 );
 
-CREATE TABLE lists (
+CREATE TABLE wish_lists (
 id INT NOT NULL AUTO_INCREMENT,
 list_name VARCHAR(100) NOT NULL,
 list_desc VARCHAR(255) NULL,
@@ -35,5 +35,5 @@ conclued BIT DEFAULT 0,
 PRIMARY KEY(id)
 );
 
-ALTER TABLE item_to_list ADD FOREIGN KEY(id_list) REFERENCES lists(id);
+ALTER TABLE item_to_list ADD FOREIGN KEY(id_list) REFERENCES wish_lists(id);
 ALTER TABLE item_to_list ADD FOREIGN KEY(id_item) REFERENCES items(id);

@@ -6,7 +6,7 @@ class WishList {
     private $id;
     private $name;
     private $desc;
-    private $items;
+    private $items = [];
 
     public function __constructor($id, $name, $desc, $items){
         $this->id = $id;
