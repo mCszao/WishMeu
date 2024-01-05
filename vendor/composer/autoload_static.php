@@ -11,12 +11,20 @@ class ComposerStaticInit8d070178755c320c69f93ee4800660ef
         array (
             'model\\' => 6,
         ),
+        'd' => 
+        array (
+            'dao\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'model\\' => 
         array (
             0 => __DIR__ . '/../..' . '/model',
+        ),
+        'dao\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/dao',
         ),
     );
 
