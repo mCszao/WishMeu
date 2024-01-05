@@ -35,6 +35,7 @@ class WishList {
 
 interface WishListDAO {
     public function save(WishList $list);
+    public function findItemsByList(WhishList $list);
     public function findAll();
     public function findByName($string);
 }
