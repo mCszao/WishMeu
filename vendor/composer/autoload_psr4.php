@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'model\\' => array($baseDir . '/model'),
-    'dao\\' => array($baseDir . '/dao'),
+    'src\\' => array($baseDir . '/src'),
+    'core\\' => array($baseDir . '/core'),
+    'ClanCats\\Hydrahon\\' => array($vendorDir . '/clancats/hydrahon/src'),
 );

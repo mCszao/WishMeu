@@ -7,24 +7,32 @@ namespace Composer\Autoload;
 class ComposerStaticInit8d070178755c320c69f93ee4800660ef
 {
     public static $prefixLengthsPsr4 = array (
-        'm' => 
+        's' => 
         array (
-            'model\\' => 6,
+            'src\\' => 4,
         ),
-        'd' => 
+        'c' => 
         array (
-            'dao\\' => 4,
+            'core\\' => 5,
+        ),
+        'C' => 
+        array (
+            'ClanCats\\Hydrahon\\' => 18,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'model\\' => 
+        'src\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/model',
+            0 => __DIR__ . '/../..' . '/src',
         ),
-        'dao\\' => 
+        'core\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/dao',
+            0 => __DIR__ . '/../..' . '/core',
+        ),
+        'ClanCats\\Hydrahon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/clancats/hydrahon/src',
         ),
     );
 
