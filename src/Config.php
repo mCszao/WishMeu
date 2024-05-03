@@ -10,4 +10,8 @@ class Config {
     const DB_USER = 'root';
     const DB_PASSWORD = '*Mcs6468';
     const DB_PORT = 3010;
+
+    const DEFAULT_ACTION = 'index';
+    const ERROR_CONTROLLER = 'ErrorController';
 }
+
