@@ -3,9 +3,33 @@
 namespace src\controllers;
 
 use \core\Controller;
-
+use \src\models\WishList;
 class WishListController extends Controller {
     public function add(){
         $this->render('addWishList');
+    }
+
+    public function save(){
+        $name = filter_input(INPUT_POST, 'name');
+        $desc = filter_input(INPUT_POST, 'desc');
+
+        if($name) {
+            $result = WishList::select()->where('name', $name)->execute();
+            if(count($result) === 0){
+                WishList::insert([
+                    'name' => $name,
+                    'description' => $desc
+                ])->execute();
+
+                exit;
+            } else {
+                WishList::update()->set([
+                    'name' => $name,
+                    'description' => $desc
+                ])->execute();
+            }
+        } else {
+            echo 'f';
+        }
     }
 }
