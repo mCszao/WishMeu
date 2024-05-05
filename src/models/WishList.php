@@ -1,43 +1,14 @@
 <?php
 
-namespace model;
+namespace src\models;
 
-class WishList {
-    private $id;
-    private $name;
-    private $desc;
-    private $items = [];
-
-    public function __constructor($id, $name, $desc, $items){
-        $this->id = $id;
-        $this->name = $name;
-        $this->desc = $desc;
-        $this->items = $items;
+use \core\Model;
+class WishList extends Model {
+    public static function loadCompleteLists(){
+        return WishList::select()->join('itemtolists', 'itemtolists.id_list', '=', 'wishlists.id')->get();
     }
 
-    public function getId(){
-        return $this->id;
+    public static function loadResumeLists(){
+        return WishList::select()->get();
     }
-    public function getName(){
-        return $this->name;
-    }
-
-    public function getDesc(){
-        return $this->desc;
-    }
-
-    public function setName($name){
-        $this->name = $name;
-    }
-
-    public function setDesc($description){
-        $this->desc = $description;
-    }
-}
-
-interface WishListDAO {
-    public function save(WishList $list);
-    public function findItemsByList(WhishList $list);
-    public function findAll();
-    public function findByName($string);
 }
