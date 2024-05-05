@@ -9,7 +9,7 @@ PRIMARY KEY(id),
 UNIQUE KEY(name)
 );
 
-CREATE TABLE wish_lists (
+CREATE TABLE wishlists (
 id INT NOT NULL AUTO_INCREMENT,
 name VARCHAR(100) NOT NULL,
 description VARCHAR(255) NULL,
@@ -21,22 +21,22 @@ CREATE TABLE items (
 id INT NOT NULL AUTO_INCREMENT,
 name VARCHAR(255) NOT NULL,
 observations VARCHAR(255) NULL,
-min_value DOUBLE (8,2) NOT NULL DEFAULT 0,
-max_value DOUBLE (8,2) NOT NULL DEFAULT 0,
-payed_value DOUBLE (8,2) NOT NULL DEFAULT 0,
 category_id INT NOT NULL,
 PRIMARY KEY(id)
 );
 
 ALTER TABLE items ADD FOREIGN KEY (category_id) REFERENCES categories(id);
 
-CREATE TABLE item_to_list (
+CREATE TABLE itemtolists (
 id INT NOT NULL AUTO_INCREMENT,
 id_list INT NOT NULL,
 id_item INT NOT NULL,
+min_value DOUBLE (8,2) NOT NULL DEFAULT 0,
+max_value DOUBLE (8,2) NOT NULL DEFAULT 0,
+payed_value DOUBLE (8,2) DEFAULT 0,
 conclued BIT DEFAULT 0,
 PRIMARY KEY(id)
 );
 
-ALTER TABLE item_to_list ADD FOREIGN KEY(id_list) REFERENCES wish_lists(id);
-ALTER TABLE item_to_list ADD FOREIGN KEY(id_item) REFERENCES items(id);
+ALTER TABLE itemtolist ADD FOREIGN KEY(id_list) REFERENCES wishlist(id);
+ALTER TABLE itemtolist ADD FOREIGN KEY(id_item) REFERENCES items(id);
