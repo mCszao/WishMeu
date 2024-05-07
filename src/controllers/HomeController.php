@@ -3,9 +3,13 @@
 namespace src\controllers;
 
 use \core\Controller;
+use \src\models\WishList;
 
 class HomeController extends Controller {
     public function index(){
-        $this->render('home');
+        $list = WishList::loadResumeLists();
+        $this->render('home', ['list' => $list]);
     }
+
+    
 }
