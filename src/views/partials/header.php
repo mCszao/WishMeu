@@ -16,7 +16,6 @@
         }
 
         a {
-            color: #E85D75;
             text-decoration: none;
             font-weight: bold;
             transition: all 1s ease-out;

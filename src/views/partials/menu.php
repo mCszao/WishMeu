@@ -13,12 +13,13 @@
     }
 
     .menu-item {
-        
+        color: #EE6055;
     }
 
 </style>
 <div class="menu-container">
-    <a class="menu-item" href="<?=$base.'/list/add'?>"><i>+ WishList</i></a>
+    <a class="menu-item" href="<?=$base?>"><i>- Listagem</i></a>
+    <a class="menu-item" href="<?=$base.'/list/add'?>"><i>+ Lista</i></a>
     <a class="menu-item" href="<?=$base.'/categorie/add'?>"><i>+ Categorias</i></a>
     <a class="menu-item" href="<?=$base.'/item/add'?>"><i>+ Items</i></a>
 </div>  
