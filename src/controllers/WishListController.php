@@ -29,6 +29,13 @@ class WishListController extends Controller {
 
     public function details($args){
         $list = WishList::loadInfoList($args['id']);
-        print_r($list);
+        if(count($list) === 0) {
+            $newArr[1] = 'Sem items';
+            $withoutItem = true;
+        }else {
+            $newArr = array_values($list[0]);
+            $withoutItem = false;
+        }; 
+        $this->render('details', ['list' => $list, 'name' => $newArr[1], 'withoutItem' => $withoutItem ]);
     }
 }
