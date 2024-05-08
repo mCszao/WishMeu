@@ -21,16 +21,8 @@ class CategorieController extends Controller {
                     'name' => $name,
                     'description' => $desc
                 ])->execute();
-            } else {
-                Categorie::update()->set([
-                    'name' => $name,
-                    'description' => $desc
-                ])->execute();
             }
-            
-            exit;
-        } else {
-            echo 'f';
         }
+        $this->redirect('/categorie/add');
     }
 }

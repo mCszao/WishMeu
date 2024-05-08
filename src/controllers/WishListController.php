@@ -22,13 +22,8 @@ class WishListController extends Controller {
                     'name' => $name,
                     'description' => $desc
                 ])->execute();
-            } else {
-                WishList::update()->set([
-                    'name' => $name,
-                    'description' => $desc
-                ])->execute();
             }
-            $this->redirect('/list/add');
         }
+        $this->redirect('/list/add');
     }
 }
