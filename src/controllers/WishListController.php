@@ -5,6 +5,8 @@ namespace src\controllers;
 use \core\Controller;
 use \src\models\WishList;
 class WishListController extends Controller {
+
+    
     public function add(){
         $this->render('addWishList');
     }
@@ -20,16 +22,13 @@ class WishListController extends Controller {
                     'name' => $name,
                     'description' => $desc
                 ])->execute();
-
-                exit;
             } else {
                 WishList::update()->set([
                     'name' => $name,
                     'description' => $desc
                 ])->execute();
             }
-        } else {
-            echo 'f';
+            $this->redirect('/list/add');
         }
     }
 }
