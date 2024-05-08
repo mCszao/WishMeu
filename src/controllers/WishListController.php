@@ -26,4 +26,9 @@ class WishListController extends Controller {
         }
         $this->redirect('/list/add');
     }
+
+    public function details($args){
+        $list = WishList::loadInfoList($args['id']);
+        print_r($list);
+    }
 }
