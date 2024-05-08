@@ -13,6 +13,7 @@ CREATE TABLE wishlists (
 id INT NOT NULL AUTO_INCREMENT,
 name VARCHAR(100) NOT NULL,
 description VARCHAR(255) NULL,
+conclued BIT DEFAULT 0,
 PRIMARY KEY(id),
 UNIQUE KEY(name)
 );
