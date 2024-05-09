@@ -36,6 +36,8 @@
 }
 
 .modal {
+  border: none;
+  border-radius: 1rem;
   width: 50vw;
   max-height: 50vh;
 }
@@ -51,6 +53,20 @@
   border: 2px solid gray;
   border-radius: 1rem;
   margin: 10px auto;
+
+  
+}
+
+.modal__ul__item {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1px;
+  border: 1px solid #808080;
+  border-radius: 1rem;
+}
+.modal__ul__item:hover {
+  background-color: #808080;
+  cursor: pointer;
 }
 </style>
 
@@ -59,16 +75,15 @@
 
 <dialog class="modal">
       <button class="modal__button close" onClick="closeModal()">Fechar</button>
-      <ul>
+      <ul type="none" class="modal__ul">
         <?php foreach($items as $item): 
           $itemId = $item['id'];
           $itemName = $item['name'];
           $itemObs = $item['observations'];
           $params = "$idList, $itemId,'$itemName', '$itemObs', '$base/item/additemlist'";
-          echo $params;
           ?>
           
-          <li id="<?=$itemId?>" onClick="addItem(<?=$params?>)"><?=$itemName?></li>
+          <li class="modal__ul__item" id="<?=$itemId?>" onClick="addItem(<?=$params?>)"><?=$itemName?></li>
         <?php endforeach; ?>
       </ul>
     </dialog>
