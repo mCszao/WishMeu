@@ -29,6 +29,9 @@ class WishListController extends Controller {
 
     public function details($args){
         $list = WishList::loadInfoList($args['id']);
+        $total = 0;
+        $totalMax = 0;
+        $totalMin = 0;
         if(count($list) === 0) {
             $newArr[1] = 'Sem items';
             $withoutItem = true;
@@ -36,6 +39,6 @@ class WishListController extends Controller {
             $newArr = array_values($list[0]);
             $withoutItem = false;
         }; 
-        $this->render('details', ['list' => $list, 'name' => $newArr[1], 'withoutItem' => $withoutItem ]);
+        $this->render('details', ['list' => $list, 'name' => $newArr[1], 'withoutItem' => $withoutItem, 'tot' => $total,'totMax' => $totalMax, 'totMin' => $totalMin ]);
     }
 }

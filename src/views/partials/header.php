@@ -13,6 +13,7 @@
             align-items: center;
             flex-direction: column;
             background-color: #D6D6D6;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
 
         a {

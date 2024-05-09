@@ -7,7 +7,7 @@
         border-radius: 1rem;
         position: fixed;
         top: 50%;
-        left: 2%;
+        left: 1%;
         color: white;
         gap: 1rem;
     }

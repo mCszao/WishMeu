@@ -12,7 +12,7 @@
 
     .list-item{
         border: 1px solid #474747;
-        background-color:#A9A4A4;
+        background-color: #faebd79d;
         opacity: .5;
         display: flex;
         flex-direction: column;
@@ -31,7 +31,7 @@
 
     .title{
         font-size: 2.3rem;
-        color: #EE6055;
+        color: #000;
     }
 
     .paragraph {
@@ -43,6 +43,10 @@
 
     .list-item:hover > .paragraph {
         visibility: visible;
+    }
+
+    .list-item:hover > .title {
+        color: #EE6055;
     }
     
     .link-item{

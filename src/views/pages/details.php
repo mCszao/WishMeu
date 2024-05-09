@@ -1,10 +1,11 @@
 <?php $render('header', ['title' => 'Detalhes da Lista']); ?>
 <style>
-    .container {
+.container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 10%;
+  
 }
 .container__title {
   font-size: 2rem;
@@ -57,26 +58,38 @@
       <th class="table__head__column">Nome</th>
       <th class="table__head__column">Observações</th>
       <th class="table__head__column">Categoria</th>
+      <th class="table__head__column">Concluído</th>
       <th class="table__head__column">min</th>
       <th class="table__head__column">max</th>
       <th class="table__head__column">Pago</th>
-      <th class="table__head__column">Concluído</th>
     </thead>
     <tbody class="table__content">
         <?php if($withoutItem): ?>
             <h2>Sem items</h2>
-        <?php else:?>
-            <?php foreach($list as $item): ?>
+        <?php else: ?>
+            <?php foreach($list as $item):   
+                $totMin += $item['min_value'];
+                $totMax += $item['max_value'];
+                $tot += $item['payed_value'];
+                ?>
                 <tr class="table__content__row">
-                <td class="table__content__row__data"><?=$item['item_name']?></td>
-                <td class="table__content__row__data"><?=$item['observations']?></td>
-                <td class="table__content__row__data"><?=$item['categorie_name']?></td>
-                <td class="table__content__row__data"><?=$item['min_value']?></td>
-                <td class="table__content__row__data"><?=$item['max_value']?></td>
-                <td class="table__content__row__data"><?=$item['payed_value']?></td>
-                <td class="table__content__row__data"><?=$item['conclued']?></td>
-            </tr>
+                    <td class="table__content__row__data"><?=$item['item_name']?></td>
+                    <td class="table__content__row__data"><?=$item['observations']?></td>
+                    <td class="table__content__row__data"><?=$item['categorie_name']?></td>
+                    <td class="table__content__row__data"><?=$item['conclued']?></td>
+                    <td class="table__content__row__data"><?=$item['min_value']?></td>
+                    <td class="table__content__row__data"><?=$item['max_value']?></td>
+                    <td class="table__content__row__data"><?=$item['payed_value']?></td>
+                </tr>
             <?php endforeach; ?>
+            <tfoot>
+                <tr class="table__content__row">
+                    <td class="table__content__row__data" colspan='4'></td>
+                    <td class="table__content__row__data"><strong>Total max: </strong><?=$totMin?></td>
+                    <td class="table__content__row__data"><strong>Total max: </strong><?=$totMax?></td>
+                    <td class="table__content__row__data"><strong>Total Pago: </strong><?=$tot?></td>
+                </tr>
+            </tfoot>
         <?php endif;?>     
     </tbody>
   </table>
