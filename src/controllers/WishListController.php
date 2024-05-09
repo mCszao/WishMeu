@@ -4,6 +4,7 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\models\WishList;
+use \src\models\Item;
 class WishListController extends Controller {
 
     
@@ -28,7 +29,9 @@ class WishListController extends Controller {
     }
 
     public function details($args){
-        $list = WishList::loadInfoList($args['id']);
+        $idList = $args['id'];
+        $list = WishList::loadInfoList($idList);
+        $items = Item::select(['items.id', 'items.name', 'observations', 'c.name as cat_name'])->innerJoin('categories as c', 'c.id', '=', 'items.category_id')->get();
         $total = 0;
         $totalMax = 0;
         $totalMin = 0;
@@ -39,6 +42,6 @@ class WishListController extends Controller {
             $newArr = array_values($list[0]);
             $withoutItem = false;
         }; 
-        $this->render('details', ['list' => $list, 'name' => $newArr[1], 'withoutItem' => $withoutItem, 'tot' => $total,'totMax' => $totalMax, 'totMin' => $totalMin ]);
+        $this->render('details', ['idList' => $idList,'list' => $list, 'name' => $newArr[1], 'withoutItem' => $withoutItem, 'tot' => $total,'totMax' => $totalMax, 'totMin' => $totalMin, 'items' => $items ]);
     }
 }
