@@ -35,6 +35,11 @@
   padding: 1rem;
 }
 
+.modal {
+  width: 50vw;
+  max-height: 50vh;
+}
+
 .box-emptyList {
   display: flex;
   flex-direction: column;
@@ -49,10 +54,29 @@
 }
 </style>
 
+<script src="<?=$base.'/js/dialog.js'?>"></script>
 
 
+<dialog class="modal">
+      <button class="modal__button close" onClick="closeModal()">Fechar</button>
+      <ul>
+        <?php foreach($items as $item): 
+          $itemId = $item['id'];
+          $itemName = $item['name'];
+          $itemObs = $item['observations'];
+          $params = "$idList, $itemId,'$itemName', '$itemObs', '$base/item/additemlist'";
+          echo $params;
+          ?>
+          
+          <li id="<?=$itemId?>" onClick="addItem(<?=$params?>)"><?=$itemName?></li>
+        <?php endforeach; ?>
+      </ul>
+    </dialog>
 <section class="container">
-  <h1 class="container__title"><?=$name?></h1> 
+  <header class="container__header">
+    <h1 class="container__header__title"><?=$name?></h1>
+    <button class="container__header__button open-add-item" onClick="openModal()">Adicionar Item</button>
+  </header> 
   <table class="table">
     <thead class="table__head">
       <th class="table__head__column">Nome</th>
@@ -63,7 +87,7 @@
       <th class="table__head__column">max</th>
       <th class="table__head__column">Pago</th>
     </thead>
-    <tbody class="table__content">
+    <tbody class="table__content body">
         <?php if($withoutItem): ?>
             <h2>Sem items</h2>
         <?php else: ?>
@@ -77,17 +101,17 @@
                     <td class="table__content__row__data"><?=$item['observations']?></td>
                     <td class="table__content__row__data"><?=$item['categorie_name']?></td>
                     <td class="table__content__row__data"><?=$item['conclued']?></td>
-                    <td class="table__content__row__data"><?=$item['min_value']?></td>
-                    <td class="table__content__row__data"><?=$item['max_value']?></td>
-                    <td class="table__content__row__data"><?=$item['payed_value']?></td>
+                    <td class="table__content__row__data">R$<?=$item['min_value']?></td>
+                    <td class="table__content__row__data">R$<?=$item['max_value']?></td>
+                    <td class="table__content__row__data">R$<?=$item['payed_value']?></td>
                 </tr>
             <?php endforeach; ?>
             <tfoot>
                 <tr class="table__content__row">
                     <td class="table__content__row__data" colspan='4'></td>
-                    <td class="table__content__row__data"><strong>Total max: </strong><?=$totMin?></td>
-                    <td class="table__content__row__data"><strong>Total max: </strong><?=$totMax?></td>
-                    <td class="table__content__row__data"><strong>Total Pago: </strong><?=$tot?></td>
+                    <td class="table__content__row__data"><strong>Total max: R$</strong><?=$totMin?></td>
+                    <td class="table__content__row__data"><strong>Total max: R$</strong><?=$totMax?></td>
+                    <td class="table__content__row__data"><strong>Total Pago: R$</strong><?=$tot?></td>
                 </tr>
             </tfoot>
         <?php endif;?>     
