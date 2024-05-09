@@ -4,6 +4,7 @@ namespace src\controllers;
 use \core\Controller;
 use \src\models\Item;
 use \src\models\Categorie;
+use \src\models\itemToList;
 
 class ItemController extends Controller {
     public function add(){
@@ -33,5 +34,14 @@ class ItemController extends Controller {
         }
         $this->redirect('/item/add');
     
+    }
+
+    public function itemToList(){
+        $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        
+        itemToList::insert([
+            'id_list' => $data['idList'],
+            'id_item' => $data['itemId']
+        ])->execute();
     }
 }
