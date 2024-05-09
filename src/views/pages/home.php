@@ -58,7 +58,6 @@
 </style>
 
 
-
 <div class="list-container">
     <?php foreach ($list as $item): ?>
         <a class="link-item"href="<?=$base.'/'.'list'.'/'.$item['id']?>">
