@@ -7,14 +7,14 @@
     }
 
 </style>
-<form method="POST" action="<?=$base.'/'.$keyword?>/save">
+<form method="POST" action="<?=$base.'/'.$keyword.'/'.$endpoint?>">
     <div>
         <label for="name">Nome  <?=$keywordPT?>:</label>
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" value="<?=$name?>"/>
     </div>
     <div>
         <label for="desc">Descrição  <?=$keywordPT?>:</label>
-        <input type="text" name="desc" id="desc"/>
+        <input type="text" name="desc" id="desc" value="<?=$desc?>"/>
     </div>
     <input type="submit" value="Adicionar">
 </form>
