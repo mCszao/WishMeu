@@ -7,7 +7,10 @@ use \src\models\Categorie;
 
 class CategorieController extends Controller {
     public function add(){
-        $this->render('addCategorie');
+        $endpoint = "save";
+        $name = "";
+        $desc = "";
+        $this->render('addCategorie',['name' => $name, 'desc' => $desc, 'endpoint' => $endpoint]);
     }
 
     public function save(){
