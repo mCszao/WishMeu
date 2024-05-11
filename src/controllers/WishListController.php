@@ -8,8 +8,20 @@ use \src\models\Item;
 class WishListController extends Controller {
 
     
-    public function add(){
-        $this->render('addWishList');
+    public function add($args){
+        $name = "";
+        $desc = "";
+        $endpoint = "save";
+        if($args) {
+            $slug = $args['id'];
+            $result = WishList::select()->where('id', $slug)->first();
+            if(count($result) > 0) {
+                $name = $result['name'];
+                $desc = $result['description'];
+                $endpoint = "edit/".$slug;
+            }
+        }            
+        $this->render('addWishList', ['name' => $name, 'desc' => $desc, 'endpoint' => $endpoint]);
     }
 
     public function save(){
@@ -26,6 +38,15 @@ class WishListController extends Controller {
             }
         }
         $this->redirect('/list/add');
+    }
+
+    public function edit($args){
+        $name = filter_input(INPUT_POST, 'name');
+        $desc = filter_input(INPUT_POST, 'desc');
+        if($name) {
+            WishList::update(['name' => $name, 'description' => $desc])->where('id', $args['id'])->execute();
+        }
+        $this->redirect('/list/add/'.$args['id']);
     }
 
     public function details($args){
