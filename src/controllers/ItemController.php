@@ -41,7 +41,10 @@ class ItemController extends Controller {
         
         itemToList::insert([
             'id_list' => $data['idList'],
-            'id_item' => $data['itemId']
+            'id_item' => $data['itemId'],
+            'max_value' => $data['max'],
+            'min_value' => $data['min']
         ])->execute();
+
     }
 }
