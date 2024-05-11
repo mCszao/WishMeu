@@ -39,9 +39,11 @@
 
 .modal {
   border: none;
-  max-width: 70vw;
+  width: 70vw;
+  height: 70vh;
   background-color: #025951;
   border-radius: .2rem;
+  border: 1px solid #fff;
 
 }
 
@@ -76,6 +78,7 @@
   padding: 1rem;
   width: 80%;
   max-height: 60vh;
+  width: 50vw;
   margin: 0.5rem auto 0.5rem auto;
   transition: ease .2s;
   border: 1px solid #fff;
@@ -127,11 +130,13 @@
   box-shadow: 5px 5px 0px 1px #000000;
 }
 .moda__title{
+  margin-top: 3rem;
   font-size: 2rem;
   color: #fff;
 }
 
 .modal__button {
+  position: fixed;
   border-radius: 1rem;
   padding: .5rem;
   color: red;
@@ -155,7 +160,8 @@
           $itemId = $item['id'];
           $itemName = $item['name'];
           $itemObs = $item['observations'];
-          $params = "$idList, $itemId,'$itemName', '$itemObs', '$base/item/additemlist'";
+          $itemCat = $item['cat_name'];
+          $params = "$idList, $itemId,'$itemName', '$itemObs', '$itemCat' , '$base/item/additemlist'";
           ?>
           
           <li class="modal__ul__item" id="<?=$itemId?>">
@@ -202,7 +208,7 @@
                     <td class="table__content__row__data"><?=$item['item_name']?></td>
                     <td class="table__content__row__data"><?=$item['observations']?></td>
                     <td class="table__content__row__data"><?=$item['categorie_name']?></td>
-                    <td class="table__content__row__data"><?=$item['conclued']?></td>
+                    <td class="table__content__row__data"><?=$item['conclued'] == 0 ? '❌' : '✅'?></td>
                     <td class="table__content__row__data">R$<?=$item['min_value']?></td>
                     <td class="table__content__row__data">R$<?=$item['max_value']?></td>
                     <td class="table__content__row__data">R$<?=$item['payed_value']?></td>
@@ -211,7 +217,7 @@
             <tfoot>
                 <tr class="table__content__row">
                     <td class="table__content__row__data" colspan='4'></td>
-                    <td class="table__content__row__data"><strong>Total max: R$</strong><?=$totMin?></td>
+                    <td class="table__content__row__data"><strong>Total min: R$</strong><?=$totMin?></td>
                     <td class="table__content__row__data"><strong>Total max: R$</strong><?=$totMax?></td>
                     <td class="table__content__row__data"><strong>Total Pago: R$</strong><?=$tot?></td>
                 </tr>
