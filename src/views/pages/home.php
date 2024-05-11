@@ -67,10 +67,20 @@
     opacity: 0;
     cursor: pointer;
 }
-.img-edit:hover {
+.img-delete {
+    opacity: 0;
+    cursor: pointer;
+}
+.img-edit:hover{
+    transform: scale(1);
+}
+.img-delete:hover {
     transform: scale(1);
 }
 .item-container:hover > .img-edit {
+    opacity: 1;
+}
+.item-container:hover > .img-delete {
     opacity: 1;
 }
 
@@ -83,6 +93,9 @@
             <div class="item-container">
                 <a class="img-edit" href="<?=$base.'/'.'list'.'/add/'.$item['id']?>">
                     <img src="https://icons.iconarchive.com/icons/arturo-wibawa/akar/128/edit-icon.png" width="24" height="24" >
+                </a>
+                <a class="img-delete" href="<?=$base.'/'.'list'.'/delete/'.$item['id']?>" onClick="return confirm('Você quer mesmo deletar essa lista?')">
+                    <img src="https://icons.iconarchive.com/icons/pictogrammers/material/128/delete-alert-icon.png" width="24" height="24">
                 </a>
                 <a class="link-item" href="<?=$base.'/'.'list'.'/'.$item['id']?>">
                     <div class="list-item" id="<?=$item['id']?>">

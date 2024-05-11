@@ -65,4 +65,11 @@ class WishListController extends Controller {
         }; 
         $this->render('details', ['idList' => $idList,'list' => $list, 'name' => $newArr[1], 'withoutItem' => $withoutItem, 'tot' => $total,'totMax' => $totalMax, 'totMin' => $totalMin, 'items' => $items ]);
     }
+
+    public function delete($args){
+        $idList = $args['id'];
+        WishList::delete()->where('id', $idList)->execute();
+        
+        $this->redirect('/');
+    }
 }
