@@ -14,6 +14,7 @@ async function addItem(idList,itemId, itemName, itemObs, path){
     const tableBody = document.querySelector('.body');
     const min = document.getElementById('min'+itemId).value;
     const max = document.getElementById('max'+itemId).value;
+    if(min < max) {
     let dataForm = `idList=${idList}&itemId=${itemId}&min=${min}&max=${max}`;
     await fetch(path, {
         method: 'POST',
@@ -30,7 +31,9 @@ async function addItem(idList,itemId, itemName, itemObs, path){
         <td class="table__content__row__data">R$${max}</td>
         <td class="table__content__row__data">R$0</td>
     </tr>`
-
+    } else {
+        alert('Valor minímo maior que o máximo, cadastre os valores corretamente!')
+    }
     document.getElementById('min'+itemId).value = "";
     document.getElementById('max'+itemId).value = "";
 }
