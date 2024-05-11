@@ -3,13 +3,13 @@
         background-color:#034159;
         box-shadow: 1px 3px 15px 2px #000000;
         display: flex;
-        flex-direction: column;
         padding: 1rem;
-        border-radius: 1rem;
-        height: 0.1rem;
+        border-radius: 0 0 1rem 0;
+        height: auto;
         position: fixed;
-        top: 1%;
-        left: 1%;
+        z-index: 999;
+        top: 0;
+        left: 0;
         color: white;
         gap: 1rem;
     }
@@ -17,16 +17,13 @@
     
     .menu-container:hover{
         box-shadow: 1px 3px 15px 2px #fff;
-        height: auto;
+
         transition: ease-in .8s;
     }
-    .menu-container:hover > .menu-item {
-        opacity: 1;
-        transition: ease-out 1s;
-    }
+    
 
     .menu-item {
-        opacity: 0;
+        opacity: 1;
         color: #02735E;
         
         
