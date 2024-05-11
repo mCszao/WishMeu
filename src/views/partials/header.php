@@ -12,19 +12,19 @@
             display: flex;
             align-items: center;
             flex-direction: column;
-            background-color: #D6D6D6;
+            background-color:#02735E;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
 
         a {
             text-decoration: none;
             font-weight: bold;
-            transition: all 1s ease-out;
+            transition: all 0.2s ease-out;
             
         }
 
         a:hover {
-            color: #57737A;
+            color: #0CF25D;
             transform: scale(1.05);
         }
         header{

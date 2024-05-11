@@ -11,8 +11,8 @@
     }
 
     .list-item{
-        border: 1px solid #474747;
-        background-color: #faebd79d;
+        border: 1px solid #000000;
+        background-color: #fff;
         opacity: .5;
         display: flex;
         flex-direction: column;
@@ -23,7 +23,7 @@
     }
 
     .list-item:hover{
-        background-color: #474747;
+        background-color: #0CF25D;
         cursor: pointer;
         box-shadow: 0px 10px 6px 0px black;
         opacity: 1;
@@ -35,8 +35,8 @@
     }
 
     .paragraph {
-        font-size: 1.5rem;
-        color: #FFF;
+        font-size: 2rem;
+        color: #02735E;
         visibility: hidden;
 
     }
@@ -46,7 +46,7 @@
     }
 
     .list-item:hover > .title {
-        color: #EE6055;
+        color: #fff;
     }
     
     .link-item{
