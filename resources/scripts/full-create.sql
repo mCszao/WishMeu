@@ -39,5 +39,5 @@ conclued BIT DEFAULT 0,
 PRIMARY KEY(id)
 );
 
-ALTER TABLE itemtolist ADD FOREIGN KEY(id_list) REFERENCES wishlist(id);
-ALTER TABLE itemtolist ADD FOREIGN KEY(id_item) REFERENCES items(id);
+ALTER TABLE itemtolists ADD FOREIGN KEY(id_list) REFERENCES wishlists(id);
+ALTER TABLE itemtolists ADD FOREIGN KEY(id_item) REFERENCES items(id);
