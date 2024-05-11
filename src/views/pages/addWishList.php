@@ -2,5 +2,5 @@
 
 <h2>Lista</h2>
 
-<?php $render('baseForm', ['keyword' => 'list', 'keywordPT' => 'Lista'])?>
+<?php $render('baseForm', ['keyword' => 'list', 'keywordPT' => 'Lista', 'name' => $name, 'desc' => $desc, 'endpoint' => $endpoint])?>
 
