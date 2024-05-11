@@ -38,9 +38,15 @@
 
 .modal {
   border: none;
-  border-radius: 1rem;
-  width: 50vw;
-  max-height: 50vh;
+  max-width: 70vw;
+  background-color:#02735E;
+
+}
+
+.modal::backdrop{
+  background-color: black;
+  opacity: 0.5;
+
 }
 
 .box-emptyList {
@@ -60,15 +66,36 @@
 
 .modal__ul__item {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  margin-bottom: 1px;
-  border: 1px solid #808080;
-  border-radius: 1rem;
+  padding: 1rem;
+  width: 80%;
+  max-height: 60vh;
+  margin-bottom: 2px;
+  transition: ease .2s;
+ 
+}
+
+.modal__ul__item__p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.modal__ul__item__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid #fff;
+  padding: 0.5rem;
+
+}
+
+.modal__ul__item__container__button {
+  cursor: pointer;
 }
 .modal__ul__item:hover {
-  background-color: #808080;
-  cursor: pointer;
+  border: 1px solid #fff;
+  transform: scale(1.1);
 }
 
 .container__header {
@@ -77,9 +104,10 @@
   align-items: center;
 }
 
-.container__header__button {
+.container__header__button, .modal__ul__item {
   font-size: 1rem;
   flex: 1 1 auto;
+
   background-color: #0CF25D; 
 
 }
@@ -95,7 +123,8 @@
 
 
 <dialog class="modal">
-      <button class="modal__button close" onClick="closeModal()">Fechar</button>
+      <button class="modal__button close" onClick="closeModal()">X</button>
+      <h2>Selecione um Item</h2>
       <ul type="none" class="modal__ul">
         <?php foreach($items as $item): 
           $itemId = $item['id'];
@@ -104,7 +133,19 @@
           $params = "$idList, $itemId,'$itemName', '$itemObs', '$base/item/additemlist'";
           ?>
           
-          <li class="modal__ul__item" id="<?=$itemId?>" onClick="addItem(<?=$params?>)"><?=$itemName?></li>
+          <li class="modal__ul__item" id="<?=$itemId?>">
+            <p class="modal__ul__item__p">
+              <?=$itemName?>
+            </p>
+            <div class="modal__ul__item__container">
+              <label for="min_value">min R$</label>
+              <input class="modal__ul__item__container__input" type="number" name="min_value" id="min<?=$itemId?>">
+
+              <label for="max_value">max R$</label>
+              <input class="modal__ul__item__container__input" type="number" name="max_value" id="max<?=$itemId?>">
+              <button class="modal__ul__item__container__button" onClick="addItem(<?=$params?>)">Adicionar</button>
+            </div>
+          </li>
         <?php endforeach; ?>
       </ul>
     </dialog>
