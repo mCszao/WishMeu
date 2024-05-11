@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-left: 10%;
+  margin-left: 5%;
+  margin-top: 25px;
   
 }
 .container__header__title {
@@ -39,7 +40,8 @@
 .modal {
   border: none;
   max-width: 70vw;
-  background-color:#02735E;
+  background-color: #025951;
+  border-radius: .2rem;
 
 }
 
@@ -47,6 +49,9 @@
   background-color: black;
   opacity: 0.5;
 
+}
+.modal::-webkit-scrollbar {
+  display: none;
 }
 
 .box-emptyList {
@@ -71,9 +76,11 @@
   padding: 1rem;
   width: 80%;
   max-height: 60vh;
-  margin-bottom: 2px;
+  margin: 0.5rem auto 0.5rem auto;
   transition: ease .2s;
- 
+  border: 1px solid #fff;
+  border-radius: .2rem;
+  font-weight: bold;
 }
 
 .modal__ul__item__p {
@@ -92,9 +99,10 @@
 
 .modal__ul__item__container__button {
   cursor: pointer;
+  background-color: #0CF25D; 
 }
 .modal__ul__item:hover {
-  border: 1px solid #fff;
+  color: white;
   transform: scale(1.1);
 }
 
@@ -104,10 +112,11 @@
   align-items: center;
 }
 
-.container__header__button, .modal__ul__item {
+.container__header__button {
   font-size: 1rem;
+  border-radius: 0.2rem;
   flex: 1 1 auto;
-
+  padding: 1rem;
   background-color: #0CF25D; 
 
 }
@@ -117,14 +126,30 @@
   transition: ease-in 0.2s;
   box-shadow: 5px 5px 0px 1px #000000;
 }
+.moda__title{
+  font-size: 2rem;
+  color: #fff;
+}
+
+.modal__button {
+  border-radius: 1rem;
+  padding: .5rem;
+  color: red;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.modal__button:hover{
+  cursor: pointer;
+}
 </style>
 
 <script src="<?=$base.'/js/dialog.js'?>"></script>
 
 
 <dialog class="modal">
-      <button class="modal__button close" onClick="closeModal()">X</button>
-      <h2>Selecione um Item</h2>
+      <button class="modal__button close" onClick="closeModal()">Voltar</button>
+      <h2 class="moda__title">Selecione um Item</h2>
       <ul type="none" class="modal__ul">
         <?php foreach($items as $item): 
           $itemId = $item['id'];
