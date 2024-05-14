@@ -11,6 +11,8 @@ $router->post('/list/edit/{id}', 'WishListController@edit');
 $router->get('/list/{id}', 'WishListController@details');
 $router->get('/list/delete/{id}', 'WishListController@delete');
 $router->get('/categorie/add', 'CategorieController@add');
+$router->get('/categorie/add/{id}', 'CategorieController@add');
+$router->post('/categorie/edit/{id}', 'CategorieController@edit');
 $router->post('/categorie/save', 'CategorieController@save');
 $router->get('/item/add', 'ItemController@add');
 $router->post('/item/save', 'ItemController@save');
