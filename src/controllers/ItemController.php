@@ -4,7 +4,7 @@ namespace src\controllers;
 use \core\Controller;
 use \src\models\Item;
 use \src\models\Categorie;
-use \src\models\itemToList;
+use \src\models\ItemToList;
 
 class ItemController extends Controller {
     public function add(){
@@ -39,12 +39,19 @@ class ItemController extends Controller {
     public function itemToList(){
         $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         
-        itemToList::insert([
+        ItemToList::insert([
             'id_list' => $data['idList'],
             'id_item' => $data['itemId'],
             'max_value' => $data['max'],
             'min_value' => $data['min']
         ])->execute();
 
+    }
+
+    public function delete($args){
+        $id = $args['id'];
+        ItemToList::delete()->where('id', $id)->execute();
+        
+        $this->redirect('/list/'.$args['idList']);
     }
 }

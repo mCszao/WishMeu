@@ -147,6 +147,13 @@
 .modal__button:hover{
   cursor: pointer;
 }
+
+.table__content__row__data__button{
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+
 </style>
 
 <script src="<?=$base.'/js/dialog.js'?>"></script>
@@ -187,6 +194,7 @@
   </header> 
   <table class="table">
     <thead class="table__head">
+      <th class="table__head__column">Editar/Deletar</th>
       <th class="table__head__column">Nome</th>
       <th class="table__head__column">Observações</th>
       <th class="table__head__column">Categoria</th>
@@ -203,8 +211,18 @@
                 $totMin += $item['min_value'];
                 $totMax += $item['max_value'];
                 $tot += $item['payed_value'];
+                $correlationId = $item['item_list_id'];
                 ?>
+                
                 <tr class="table__content__row">
+                    <td class="table__content__row__data">
+                        <button class="table__content__row__data__button">
+                            <img src="https://icons.iconarchive.com/icons/arturo-wibawa/akar/128/edit-icon.png" width="24" height="24" >
+                        </button>
+                        <a class="img-delete" href="<?="$base/item/deleteitemlist/$correlationId&idList=$idList"?>" onClick="return confirm('Você quer mesmo deletar esse item?')">
+                            <img src="https://icons.iconarchive.com/icons/pictogrammers/material/128/delete-alert-icon.png" width="24" height="24">
+                        </a>
+                    </td>
                     <td class="table__content__row__data"><?=$item['item_name']?></td>
                     <td class="table__content__row__data"><?=$item['observations']?></td>
                     <td class="table__content__row__data"><?=$item['categorie_name']?></td>
