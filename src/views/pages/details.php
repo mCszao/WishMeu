@@ -150,7 +150,7 @@
 </style>
 
 <script src="<?=$base.'/js/dialog.js'?>"></script>
-lenght
+
 
 <dialog class="modal">
       <button class="modal__button close" onClick="closeModal()">Voltar</button>
@@ -166,7 +166,7 @@ lenght
           
           <li class="modal__ul__item" id="<?=$itemId?>">
             <p class="modal__ul__item__p">
-              <?=strleng($itemName) > 16 ? substr($itemName, 0, 16).'...' : $itemName?>
+              <?=(strlen($itemName) > 16 ) ? substr($itemName, 0, 16).'...' : $itemName?>
             </p>
             <div class="modal__ul__item__container">
               <label for="min_value">min R$</label>
