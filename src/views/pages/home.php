@@ -86,7 +86,6 @@
 
     
 </style>
-<script src="<?=$base.'/js/list.js'?>"></script>
 <?php if(count($list) > 0):?>
     <div class="list-container">
         <?php foreach ($list as $item): ?>
