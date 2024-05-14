@@ -46,7 +46,7 @@ class WishListController extends Controller {
         if($name) {
             WishList::update(['name' => $name, 'description' => $desc])->where('id', $args['id'])->execute();
         }
-        $this->redirect('/list/add/'.$args['id']);
+        $this->redirect('/');
     }
 
     public function details($args){
