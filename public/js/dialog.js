@@ -14,7 +14,7 @@ async function addItem(idList,itemId, itemName, itemObs, itemCat, path){
     const tableBody = document.querySelector('.body');
     const min = document.getElementById('min'+itemId).value;
     const max = document.getElementById('max'+itemId).value;
-    if(min < max) {
+    if(Number(min) <= Number(max)) {
     let dataForm = `idList=${idList}&itemId=${itemId}&min=${min}&max=${max}`;
     await fetch(path, {
         method: 'POST',
@@ -26,7 +26,7 @@ async function addItem(idList,itemId, itemName, itemObs, itemCat, path){
         <td class="table__content__row__data">${itemName}</td>
         <td class="table__content__row__data">${itemObs}</td>
         <td class="table__content__row__data">${itemCat}</td>
-        <td class="table__content__row__data">'❌'</td>
+        <td class="table__content__row__data">❌</td>
         <td class="table__content__row__data">R$${min}</td>
         <td class="table__content__row__data">R$${max}</td>
         <td class="table__content__row__data">R$0</td>
