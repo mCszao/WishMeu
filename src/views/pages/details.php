@@ -234,7 +234,7 @@
             <?php endforeach; ?>
             <tfoot>
                 <tr class="table__content__row">
-                    <td class="table__content__row__data" colspan='4'></td>
+                    <td class="table__content__row__data" colspan='5'></td>
                     <td class="table__content__row__data"><strong>Total min: R$</strong><?=$totMin?></td>
                     <td class="table__content__row__data"><strong>Total max: R$</strong><?=$totMax?></td>
                     <td class="table__content__row__data"><strong>Total Pago: R$</strong><?=$tot?></td>

@@ -45,7 +45,8 @@ class ItemController extends Controller {
             'max_value' => $data['max'],
             'min_value' => $data['min']
         ])->execute();
-
+        
+        
     }
 
     public function delete($args){
