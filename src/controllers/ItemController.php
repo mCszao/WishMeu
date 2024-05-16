@@ -50,8 +50,9 @@ class ItemController extends Controller {
 
     public function delete($args){
         $id = $args['id'];
+        $idList = ItemToList::select('id_list')->where('id', $id)->get();
         ItemToList::delete()->where('id', $id)->execute();
         
-        $this->redirect('/list/'.$args['idList']);
+        $this->redirect('/list/'.$idList);
     }
 }

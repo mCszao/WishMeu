@@ -219,7 +219,7 @@
                         <button class="table__content__row__data__button">
                             <img src="https://icons.iconarchive.com/icons/arturo-wibawa/akar/128/edit-icon.png" width="24" height="24" >
                         </button>
-                        <a class="img-delete" href="<?="$base/item/deleteitemlist/$correlationId&idList=$idList"?>" onClick="return confirm('Você quer mesmo deletar esse item?')">
+                        <a class="img-delete" href="<?="$base/item/deleteitemlist/$correlationId"?>" onClick="return confirm('Você quer mesmo deletar esse item?')">
                             <img src="https://icons.iconarchive.com/icons/pictogrammers/material/128/delete-alert-icon.png" width="24" height="24">
                         </a>
                     </td>
