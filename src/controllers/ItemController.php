@@ -46,14 +46,14 @@ class ItemController extends Controller {
             'min_value' => $data['min']
         ])->execute();
         
-        
+
     }
 
     public function delete($args){
         $id = $args['id'];
-        $idList = ItemToList::select('id_list')->where('id', $id)->get();
+        $idList = ItemToList::select('id_list')->where('id', $id)->one();
         ItemToList::delete()->where('id', $id)->execute();
         
-        $this->redirect('/list/'.$idList);
+        $this->redirect('/list/'.$idList['id_list']);
     }
 }
