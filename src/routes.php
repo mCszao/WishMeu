@@ -17,4 +17,5 @@ $router->post('/categorie/save', 'CategorieController@save');
 $router->get('/item/add', 'ItemController@add');
 $router->post('/item/save', 'ItemController@save');
 $router->post('/item/additemlist', 'ItemController@itemToList');
+$router->post('/item/edititemlist/{id}', 'ItemController@edit');
 $router->get('/item/deleteitemlist/{id}', 'ItemController@delete');

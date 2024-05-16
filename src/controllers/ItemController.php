@@ -56,4 +56,14 @@ class ItemController extends Controller {
         
         $this->redirect('/list/'.$idList['id_list']);
     }
+
+    public function edit($args){
+        $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        
+        ItemToList::update(['min_value' => $data['min'],
+                            'max_value' => $data['max'],
+                            'payed_value' => $data['payed']]
+        )->where('id', $args['id'])->execute();
+        
+    }
 }

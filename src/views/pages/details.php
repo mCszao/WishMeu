@@ -216,7 +216,7 @@
                 
                 <tr class="table__content__row">
                     <td class="table__content__row__data">
-                        <button class="table__content__row__data__button">
+                        <button class="table__content__row__data__button" onClick="editRow(<?=$correlationId?>)">
                             <img src="https://icons.iconarchive.com/icons/arturo-wibawa/akar/128/edit-icon.png" width="24" height="24" >
                         </button>
                         <a class="img-delete" href="<?="$base/item/deleteitemlist/$correlationId"?>" onClick="return confirm('Você quer mesmo deletar esse item?')">
@@ -226,10 +226,10 @@
                     <td class="table__content__row__data"><?=$item['item_name']?></td>
                     <td class="table__content__row__data"><?=$item['observations']?></td>
                     <td class="table__content__row__data"><?=$item['categorie_name']?></td>
-                    <td class="table__content__row__data"><?=$item['conclued'] == 0 ? '❌' : '✅'?></td>
-                    <td class="table__content__row__data">R$<?=$item['min_value']?></td>
-                    <td class="table__content__row__data">R$<?=$item['max_value']?></td>
-                    <td class="table__content__row__data">R$<?=$item['payed_value']?></td>
+                    <td class="table__content__row__data" id="<?="conclued$correlationId"?>"><?=$item['conclued'] == 0 ? '❌' : '✅'?></td>
+                    <td class="table__content__row__data" id="<?="minValue$correlationId"?>">R$<?=$item['min_value']?></td>
+                    <td class="table__content__row__data" id="<?="maxValue$correlationId"?>">R$<?=$item['max_value']?></td>
+                    <td class="table__content__row__data" id="<?="payed$correlationId"?>">R$<?=$item['payed_value']?></td>
                 </tr>
             <?php endforeach; ?>
             <tfoot>
