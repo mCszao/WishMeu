@@ -56,14 +56,18 @@
   color: white;
   transform: scale(1.1);
 }
-
-.modal__title{
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal__header__title{
   margin-top: 3rem;
   font-size: 2rem;
   color: #fff;
 }
 
-.modal__button {
+.modal__header__button {
   position: fixed;
   border-radius: 1rem;
   padding: .5rem;
@@ -72,15 +76,34 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
-.modal__button:hover{
+.modal__header__button:hover{
   cursor: pointer;
+}
+.modal__header__input{
+  border: none;
+  background-color: #fff;
+  height: 1.2rem;
+  width: 60%;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.modal__header__input:focus{
+  outline: none;
 }
 </style>
 <script src="<?=$base.'/js/dialog.js'?>"></script>
 
 <dialog class="modal">
-    <button class="modal__button close" onClick="closeModal()">Voltar</button>
-    <h2 class="modal__title">Selecione um Item</h2>
+    <header class="modal__header">
+      <div>
+        <button class="modal__header__button close" onClick="closeModal()">Voltar</button>
+        <h2 class="modal__header__title">Selecione um Item</h2>
+      </div>
+      <input class="modal__header__input" placeholder="Digite o nome de um item" type="search" name="search" id="search" onChange="filterItems(<?=$items?>)">
+    </header>
     <ul type="none" class="modal__ul">
         <?php foreach($items as $item): 
           $itemId = $item['id'];

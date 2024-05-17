@@ -59,3 +59,4 @@ function reRenderScreen(minItem, maxItem) {
     document.getElementById('totalMin').innerHTML = totMin+ minItem;
     document.getElementById('totalMax').innerHTML = totMax+ maxItem;
 }
+
