@@ -37,25 +37,6 @@
   padding: 1rem;
 }
 
-.modal {
-  border: none;
-  width: 70vw;
-  height: 70vh;
-  background-color: #025951;
-  border-radius: .2rem;
-  border: 1px solid #fff;
-
-}
-
-.modal::backdrop{
-  background-color: black;
-  opacity: 0.5;
-
-}
-.modal::-webkit-scrollbar {
-  display: none;
-}
-
 .box-emptyList {
   display: flex;
   flex-direction: column;
@@ -69,44 +50,6 @@
   margin: 10px auto;
 
   
-}
-
-.modal__ul__item {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem;
-  width: 80%;
-  max-height: 60vh;
-  width: 50vw;
-  margin: 0.5rem auto 0.5rem auto;
-  transition: ease .2s;
-  border: 1px solid #fff;
-  border-radius: .2rem;
-  font-weight: bold;
-}
-
-.modal__ul__item__p {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.modal__ul__item__container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  border: 1px solid #fff;
-  padding: 0.5rem;
-
-}
-
-.modal__ul__item__container__button {
-  cursor: pointer;
-  background-color: #0CF25D; 
-}
-.modal__ul__item:hover {
-  color: white;
-  transform: scale(1.1);
 }
 
 .container__header {
@@ -128,24 +71,6 @@
   cursor: pointer;
   transition: ease-in 0.2s;
   box-shadow: 5px 5px 0px 1px #000000;
-}
-.moda__title{
-  margin-top: 3rem;
-  font-size: 2rem;
-  color: #fff;
-}
-
-.modal__button {
-  position: fixed;
-  border-radius: 1rem;
-  padding: .5rem;
-  color: red;
-  font-family: monospace;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-.modal__button:hover{
-  cursor: pointer;
 }
 
 .table__content__row__data__button{
