@@ -83,6 +83,8 @@
 
 <?php $render('modal', ['items' => $items, 'list' => $idList]); ?>
 
+<script src="<?=$base.'/js/table.js'?>"></script>
+
 <section class="container">
   <header class="container__header">
     <h1 class="container__header__title"><?=$name?></h1>
