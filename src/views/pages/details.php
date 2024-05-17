@@ -6,7 +6,7 @@
   gap: 1rem;
   margin-left: 5%;
   margin-top: 25px;
-  
+  width: 80vw;
 }
 .container__header__title {
   font-size: 2.5rem;
@@ -207,8 +207,8 @@
         <tfoot>
                 <tr class="table__content__row">
                     <td class="table__content__row__data" colspan='5'></td>
-                    <td class="table__content__row__data"><strong>Total min: R$</strong><?=$totMin?></td>
-                    <td class="table__content__row__data"><strong>Total max: R$</strong><?=$totMax?></td>
+                    <td class="table__content__row__data"><strong>Total min: R$</strong><i id="totalMin"><?=$totMin?></i></td>
+                    <td class="table__content__row__data"><strong>Total max: R$</strong><i id="totalMax"><?=$totMax?></i></td>
                     <td class="table__content__row__data"><strong>Total Pago: R$</strong><?=$tot?></td>
                 </tr>
         </tfoot> 
