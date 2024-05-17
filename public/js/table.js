@@ -11,18 +11,21 @@ async function editRow(correlationId){
         maxNode.innerHTML = `<input type="number" id="inputMax${correlationId}" value='${maxNode.innerHTML.slice(2)}'/>`;
         payedNode.innerHTML = `<input type="number" id="inputPayed${correlationId}" value='${payedNode.innerHTML.slice(2)}'/>`;
     }else {
+        let minValue = Number(document.getElementById(`inputMin${correlationId}`).value);
+        let maxValue = Number(document.getElementById(`inputMax${correlationId}`).value);
+        if(minValue > maxValue) {
+            alert('Valor minímo maior que o máximo!');
+            return;
+        }
+        resetRow(minValue, maxValue, minNode, maxNode, payedNode, correlationId);
         this.event.currentTarget.innerHTML = '<img src="https://icons.iconarchive.com/icons/arturo-wibawa/akar/128/edit-icon.png" width="24" height="24">';
-        await resetRow(minNode,maxNode,payedNode, correlationId);
     }
 
 }
 
 
-async function resetRow(min, max, payed, correlationId){
-    let minValue = document.getElementById(`inputMin${correlationId}`).value;
-    let maxValue = document.getElementById(`inputMax${correlationId}`).value;
+async function resetRow(minValue, maxValue, min, max, payed, correlationId){
     let payedValue = document.getElementById(`inputPayed${correlationId}`).value;
-
     let dataForm = `min=${minValue}&max=${maxValue}&payed=${payedValue}`;
     await fetch('http://localhost/wishmeu/public/item/edititemlist/'+correlationId, {
         method: 'POST',

@@ -42,6 +42,7 @@ async function addItem(idList,itemId, itemName, itemObs, itemCat, path){
         </tr>`;
         resetFieldsItemAfterSend(itemId);
         reRenderScreen(min, max);
+        document.getElementById('withoutItems').style.display = "none";
         return;
     } 
     alert('Valor minímo maior que o máximo, cadastre os valores corretamente!');
@@ -57,5 +58,4 @@ function reRenderScreen(minItem, maxItem) {
     let totMax = Number(document.getElementById('totalMax').innerHTML);
     document.getElementById('totalMin').innerHTML = totMin+ minItem;
     document.getElementById('totalMax').innerHTML = totMax+ maxItem;
-    document.getElementById('withoutItems').style.display = "none";
 }

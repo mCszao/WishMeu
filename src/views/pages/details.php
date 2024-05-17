@@ -136,7 +136,7 @@
                     <td class="table__content__row__data" colspan='5'></td>
                     <td class="table__content__row__data"><strong>Total min: R$</strong><i id="totalMin"><?=$totMin?></i></td>
                     <td class="table__content__row__data"><strong>Total max: R$</strong><i id="totalMax"><?=$totMax?></i></td>
-                    <td class="table__content__row__data"><strong>Total Pago: R$</strong><?=$tot?></td>
+                    <td class="table__content__row__data"><strong>Total Pago: R$</strong><i id="totalPayed"><?=$tot?></i></td>
                 </tr>
         </tfoot> 
     </tbody>
