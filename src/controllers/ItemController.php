@@ -7,6 +7,10 @@ use \src\models\Categorie;
 use \src\models\ItemToList;
 
 class ItemController extends Controller {
+    public function index(){
+        $items = $items = Item::select(['items.id', 'items.name', 'observations', 'c.name as cat_name'])->innerJoin('categories as c', 'c.id', '=', 'items.category_id')->get();
+        echo json_encode($items);
+    }
     public function add(){
         $categories = Categorie::select(['id','name'])->get();
         $this->render('addItem', ['categories' => $categories]);

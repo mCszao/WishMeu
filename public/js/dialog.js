@@ -10,14 +10,14 @@ function closeModal(){
     dialog.close();
 };  
 
-async function addItem(idList,itemId, itemName, itemObs, itemCat, path){
+async function addItem(idList,itemId, itemName, itemObs, itemCat){
     const tableBody = document.querySelector('.body');
     const min = Number(document.getElementById('min'+itemId).value);
     const max = Number(document.getElementById('max'+itemId).value);
     
     if(min <= max) {
         let dataForm = `idList=${idList}&itemId=${itemId}&min=${min}&max=${max}`;
-        await fetch(path, {
+        await fetch('http://localhost/wishmeu/public/item/additemlist', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: dataForm
@@ -58,5 +58,13 @@ function reRenderScreen(minItem, maxItem) {
     let totMax = Number(document.getElementById('totalMax').innerHTML);
     document.getElementById('totalMin').innerHTML = totMin+ minItem;
     document.getElementById('totalMax').innerHTML = totMax+ maxItem;
+}
+
+
+async function filterItems(){
+    let items = await fetch('http://localhost/wishmeu/public/item', {
+            method: 'GET',
+        }).then(response => response.json());
+    items.forEach(item => console.log(document.getElementById('search').value));
 }
 

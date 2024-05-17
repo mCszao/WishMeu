@@ -14,6 +14,7 @@ $router->get('/categorie/add', 'CategorieController@add');
 $router->get('/categorie/add/{id}', 'CategorieController@add');
 $router->post('/categorie/edit/{id}', 'CategorieController@edit');
 $router->post('/categorie/save', 'CategorieController@save');
+$router->get('/item', 'ItemController@index');
 $router->get('/item/add', 'ItemController@add');
 $router->post('/item/save', 'ItemController@save');
 $router->post('/item/additemlist', 'ItemController@itemToList');

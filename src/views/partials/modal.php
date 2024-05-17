@@ -102,7 +102,7 @@
         <button class="modal__header__button close" onClick="closeModal()">Voltar</button>
         <h2 class="modal__header__title">Selecione um Item</h2>
       </div>
-      <input class="modal__header__input" placeholder="Digite o nome de um item" type="search" name="search" id="search" onChange="filterItems(<?=$items?>)">
+      <input class="modal__header__input" placeholder="Digite o nome de um item" type="text" name="search" id="search" onChange="filterItems()">
     </header>
     <ul type="none" class="modal__ul">
         <?php foreach($items as $item): 
@@ -110,7 +110,7 @@
           $itemName = $item['name'];
           $itemObs = $item['observations'];
           $itemCat = $item['cat_name'];
-          $params = "$list, $itemId,'$itemName', '$itemObs', '$itemCat' , '$base/item/additemlist'";
+          $params = "$list, $itemId,'$itemName', '$itemObs', '$itemCat'";
         ?>
           
           <li class="modal__ul__item" id="<?=$itemId?>">
