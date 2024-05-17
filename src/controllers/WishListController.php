@@ -56,14 +56,7 @@ class WishListController extends Controller {
         $total = 0;
         $totalMax = 0;
         $totalMin = 0;
-        if(count($list) === 0) {
-            $newArr[1] = 'Sem items';
-            $withoutItem = true;
-        }else {
-            $newArr = array_values($list[0]);
-            $withoutItem = false;
-        }; 
-        $this->render('details', ['idList' => $idList,'list' => $list, 'name' => $newArr[1], 'withoutItem' => $withoutItem, 'tot' => $total,'totMax' => $totalMax, 'totMin' => $totalMin, 'items' => $items ]);
+        $this->render('details', ['idList' => $idList,'list' => $list, 'name' => $list[0]['name'], 'tot' => $total,'totMax' => $totalMax, 'totMin' => $totalMin, 'items' => $items ]);
     }
 
     public function delete($args){

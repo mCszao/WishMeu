@@ -175,8 +175,8 @@
       <th class="table__head__column">Pago</th>
     </thead>
     <tbody class="table__content body">
-        <?php if($withoutItem): ?>
-            <h2>Sem items</h2>
+        <?php if(empty($list[0]['item_list_id'])): ?>
+            <h2 id="withoutItems">Sem items</h2>
         <?php else: ?>
             <?php foreach($list as $item):   
                 $totMin += $item['min_value'];
@@ -203,15 +203,15 @@
                     <td class="table__content__row__data" id="<?="payed$correlationId"?>">R$<?=$item['payed_value']?></td>
                 </tr>
             <?php endforeach; ?>
-            <tfoot>
+        <?php endif;?>    
+        <tfoot>
                 <tr class="table__content__row">
                     <td class="table__content__row__data" colspan='5'></td>
                     <td class="table__content__row__data"><strong>Total min: R$</strong><?=$totMin?></td>
                     <td class="table__content__row__data"><strong>Total max: R$</strong><?=$totMax?></td>
                     <td class="table__content__row__data"><strong>Total Pago: R$</strong><?=$tot?></td>
                 </tr>
-            </tfoot>
-        <?php endif;?>     
+        </tfoot> 
     </tbody>
   </table>
 </section>
