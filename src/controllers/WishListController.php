@@ -5,6 +5,7 @@ namespace src\controllers;
 use \core\Controller;
 use \src\models\WishList;
 use \src\models\Item;
+use \src\models\ItemToList;
 class WishListController extends Controller {
 
     
@@ -61,6 +62,7 @@ class WishListController extends Controller {
 
     public function delete($args){
         $idList = $args['id'];
+        ItemToList::delete()->where('id_list', $idList)->execute();
         WishList::delete()->where('id', $idList)->execute();
         
         $this->redirect('/');
