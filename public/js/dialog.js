@@ -61,10 +61,34 @@ function reRenderScreen(minItem, maxItem) {
 }
 
 
-async function filterItems(){
+async function filterItems(idList){
     let items = await fetch('http://localhost/wishmeu/public/item', {
             method: 'GET',
         }).then(response => response.json());
-    items.forEach(item => console.log(document.getElementById('search').value));
+    const filteredItems = items.filter(item => item.name.toLowerCase().match(document.getElementById('search').value.toLowerCase()))
+    const listItemsView = document.querySelector('.modal__ul');
+    listItemsView.innerHTML = "";
+    if(filteredItems.length > 0) {
+        filteredItems.forEach(item => renderItemOnList(item, idList));
+        return;
+    }
+    listItemsView.innerHTML = '<h2>Nenhum item foi encontrado</h2>';
 }
 
+function renderItemOnList(item, idList) {
+    document.querySelector('.modal__ul').innerHTML += `
+    <li class="modal__ul__item" id="${item.id}">
+        <p class="modal__ul__item__p">
+            ${item.name.length > 16  ? item.name.substring(0, 16) + '...' : item.name}
+        </p>
+        <div class="modal__ul__item__container">
+            <label for="min_value">min R$</label>
+            <input class="modal__ul__item__container__input" type="number" name="min_value" id="min${item.id}">
+
+            <label for="max_value">max R$</label>
+            <input class="modal__ul__item__container__input" type="number" name="max_value" id="max${item.id}">
+            <button class="modal__ul__item__container__button" onClick="addItem('${idList}', '${item.id}','${item.name}', '${item.observations}', '${item.cat_name}')">Adicionar</button>
+        </div>
+    </li>
+    `
+}

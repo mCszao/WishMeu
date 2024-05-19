@@ -102,7 +102,7 @@
         <button class="modal__header__button close" onClick="closeModal()">Voltar</button>
         <h2 class="modal__header__title">Selecione um Item</h2>
       </div>
-      <input class="modal__header__input" placeholder="Digite o nome de um item" type="text" name="search" id="search" onChange="filterItems()">
+      <input class="modal__header__input" placeholder="Digite o nome de um item" type="text" name="search" id="search" onChange="filterItems('<?=$list?>')">
     </header>
     <ul type="none" class="modal__ul">
         <?php foreach($items as $item): 
