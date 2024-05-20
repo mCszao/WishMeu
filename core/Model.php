@@ -2,6 +2,7 @@
 namespace core;
 
 use \core\Database;
+use \src\Config;
 use \ClanCats\Hydrahon\Builder;
 use \ClanCats\Hydrahon\Query\Sql\FetchableInterface;
 
@@ -16,7 +17,7 @@ class Model {
     public static function _checkH() {
         if(self::$_h == null) {
             $connection = Database::getInstance();
-            self::$_h = new Builder('mysql', function($query, $queryString, $queryParameters) use($connection) {
+            self::$_h = new Builder(Config::DB_DRIVER, function($query, $queryString, $queryParameters) use($connection) {
                 $statement = $connection->prepare($queryString);
                 $statement->execute($queryParameters);
 
