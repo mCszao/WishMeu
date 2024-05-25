@@ -49,7 +49,6 @@ function calculateTotals(minItem, maxItem, payedItem, operator) {
     let totMin = Number(document.getElementById('totalMin').innerHTML);
     let totMax = Number(document.getElementById('totalMax').innerHTML);
     let totPayed = Number(document.getElementById('totalPayed').innerHTML);
-    verifyIsO([minItem, maxItem, payedItem]);
     switch (operator) {
         case '+':
             document.getElementById('totalMin').innerHTML = totMin + minItem;
@@ -65,6 +64,3 @@ function calculateTotals(minItem, maxItem, payedItem, operator) {
 
 }
 
-function verifyIsO(list){
-    Array.from(list).forEach(num => num = num == 0 ? 1 : num);
-}
