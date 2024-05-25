@@ -20,3 +20,4 @@ $router->post('/item/save', 'ItemController@save');
 $router->post('/item/additemlist', 'ItemToListController@addItemToList');
 $router->post('/item/edititemlist/{id}', 'ItemToListController@edit');
 $router->get('/item/deleteitemlist/{id}', 'ItemToListController@delete');
+$router->get('/item/edititemlist/conclued/{id}', 'ItemToListController@setConclued');

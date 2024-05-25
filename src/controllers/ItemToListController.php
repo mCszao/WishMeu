@@ -35,4 +35,18 @@ class ItemToListController extends Controller {
         )->where('id', $args['id'])->execute();
         
     }
+
+    public function setConclued($args){
+        $id = $args['id'];
+        $correlationItem = ItemToList::select(['conclued', 'id_list'])->where('id', $id)->one();
+        echo json_encode(['status' => false, 'data' => $correlationItem['conclued']]);
+        if($correlationItem['conclued'] === '0'){
+            ItemToList::update(['conclued' => true])->where('id', $id)->execute();
+        } 
+        if($correlationItem['conclued'] === '1') {
+            ItemToList::update(['conclued' => false])->where('id', $id)->execute();
+        }
+        
+        // $this->redirect('/list/'.$correlationItem['id_list']);
+    }
 }
