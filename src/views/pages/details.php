@@ -78,6 +78,11 @@
   cursor: pointer;
 }
 
+.button-conclued:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
 
 </style>
 
@@ -124,7 +129,7 @@
                     <td class="table__content__row__data"><?=$item['item_name']?></td>
                     <td class="table__content__row__data"><?=$item['observations']?></td>
                     <td class="table__content__row__data"><?=$item['categorie_name']?></td>
-                    <td class="table__content__row__data" id="<?="conclued$correlationId"?>"><?=$item['conclued'] == 0 ? '❌' : '✅'?></td>
+                    <td class="table__content__row__data button-conclued" id="<?="conclued$correlationId"?>" onClick="toggleConclued(<?=$correlationId?>)"><?=$item['conclued'] == 0 ? '❌' : '✅'?></td>
                     <td class="table__content__row__data" id="<?="minValue$correlationId"?>">R$<?=$item['min_value']?></td>
                     <td class="table__content__row__data" id="<?="maxValue$correlationId"?>">R$<?=$item['max_value']?></td>
                     <td class="table__content__row__data" id="<?="payed$correlationId"?>">R$<?=$item['payed_value']?></td>
