@@ -2,9 +2,9 @@
 
 <style>
 .list-container {
-    margin: 10px auto;
+    margin: 5rem auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     height: 80vh;
     gap: 1rem;
     
@@ -18,7 +18,7 @@
     flex-direction: column;
     padding: 1rem;
     height: 30vh;
-    
+    width: 20vw;
     border-radius: .2rem;
 }
 
@@ -30,12 +30,13 @@
 }
 
 .title{
-    font-size: 2.3rem;
+    font-size: 1.3rem;
+    max-width: 10vw;
     color: #000;
 }
 
 .paragraph {
-    font-size: 2rem;
+    font-size: 1em;
     color: #02735E;
     visibility: hidden;
 
@@ -100,7 +101,7 @@
                     <div class="list-item" id="<?=$item['id']?>">
                         <h3 class="title" id="<?='title'.$item['id']?>" ><?=$item['name']?></h3>
                         <p class="paragraph">
-                            <?=$item['description']?>
+                            <?=(strlen($item['description']) > 16 ) ? substr($item['description'], 0, 30).'...' : $item['description']?>
                         </p>
 
                     </div>
