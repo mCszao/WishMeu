@@ -25,6 +25,23 @@ async function editRow(correlationId){
 
 }
 
+async function toggleConclued(correlationId){
+    let payedValue = Number(document.getElementById(`payed${correlationId}`).innerHTML.slice(2));
+    if(payedValue == 0) {
+        alert("Você precisa ter o valor pago maior que 0!");
+        return;
+    }
+    let jsonResponse = await fetch('http://localhost/wishmeu/public/item/edititemlist/conclued/'+correlationId, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    });
+    let json = await jsonResponse.json();
+    console.log(json);
+    document.getElementById('conclued'+correlationId).innerHTML = `
+        <td class="table__content__row__data button-conclued" id="conclued${correlationId}" onClick="toggleConclued(${correlationId})">${json.data  == 1 ? '❌' : '✅'}</td>
+    `;
+}
+
 
 async function resetRow(minValue, maxValue, min, max, payed, correlationId){
     let payedValue = document.getElementById(`inputPayed${correlationId}`).value;
