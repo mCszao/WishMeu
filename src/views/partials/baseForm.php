@@ -66,6 +66,8 @@
     .section-container {
         margin-top: 1.5rem;
         width: 70vw;
+        max-height: 60vh;
+        overflow-y: scroll; 
         display:flex;
         flex-direction: column;
         gap: .5rem;
