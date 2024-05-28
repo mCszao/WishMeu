@@ -1,3 +1,4 @@
+<?php $render('header', ['title' => $title]); ?>
 <style>
     form {
         display: flex;
@@ -64,6 +65,7 @@
         box-shadow: 5px 5px 0px 1px #000000;
     }
 </style>
+<h2><?=$keywordPT?></h2>
 <form method="POST" action="<?=$base.'/'.$keyword.'/'.$endpoint?>">
     <div>
         <input type="text" name="name" id="name" placeholder="Nome" value="<?=$name?>"/>

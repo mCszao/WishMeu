@@ -22,7 +22,7 @@ class WishListController extends Controller {
                 $endpoint = "edit/".$slug;
             }
         }            
-        $this->render('addWishList', ['name' => $name, 'desc' => $desc, 'endpoint' => $endpoint]);
+        $this->render('addWishList', ['title' => 'Nova Lista, Meu?','name' => $name, 'desc' => $desc, 'endpoint' => $endpoint]);
     }
 
     public function save(){

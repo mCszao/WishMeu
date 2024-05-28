@@ -19,7 +19,7 @@ class CategorieController extends Controller {
                 $endpoint = "edit/".$slug;
             }
         }  
-        $this->render('addCategorie',['name' => $name, 'desc' => $desc, 'endpoint' => $endpoint]);
+        $this->render('addCategorie',['title' => 'Nova categoria','name' => $name, 'desc' => $desc, 'endpoint' => $endpoint]);
     }
 
     public function save(){
