@@ -9,4 +9,4 @@
 </style>
 <h2>Categoria</h2>
 
-<?php $render('baseForm', ['keyword' => 'categorie', 'keywordPT' => 'Categoria','name' => $name, 'desc' => $desc, 'endpoint' => $endpoint])?>
+<?php $render('baseForm', ['keyword' => 'categorie', 'keywordPT' => 'Categoria','name' => $name, 'desc' => $desc, 'endpoint' => $endpoint, 'list' => $list])?>

@@ -13,6 +13,7 @@ $router->get('/list/delete/{id}', 'WishListController@delete');
 $router->get('/categorie/add', 'CategorieController@add');
 $router->get('/categorie/add/{id}', 'CategorieController@add');
 $router->post('/categorie/edit/{id}', 'CategorieController@edit');
+$router->get('/categorie/delete/{id}', 'CategorieController@delete');
 $router->post('/categorie/save', 'CategorieController@save');
 $router->get('/item', 'ItemController@index');
 $router->get('/item/add', 'ItemController@add');

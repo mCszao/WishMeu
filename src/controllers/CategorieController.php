@@ -4,6 +4,7 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\models\Categorie;
+use \src\models\Item;
 
 class CategorieController extends Controller {
     public function add($args){
@@ -18,8 +19,9 @@ class CategorieController extends Controller {
                 $desc = $result['description'];
                 $endpoint = "edit/".$slug;
             }
-        }  
-        $this->render('addCategorie',['name' => $name, 'desc' => $desc, 'endpoint' => $endpoint]);
+        }
+        $list = Categorie::select()->get();  
+        $this->render('addCategorie',['name' => $name, 'desc' => $desc, 'endpoint' => $endpoint, 'list' => $list]);
     }
 
     public function save(){
@@ -45,5 +47,11 @@ class CategorieController extends Controller {
             Categorie::update(['name' => $name, 'description' => $desc])->where('id', $args['id'])->execute();
         }
         $this->redirect('/');
+    }
+
+    public function delete($args){
+        Item::update(['category_id' => '17'])->where('category_id', $args['id'])->execute();
+        Categorie::delete()->where('id', $args['id'])->execute();
+        $this->redirect('/categorie/add');
     }
 }
