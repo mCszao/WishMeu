@@ -84,3 +84,4 @@
     </div>
     <input type="submit" value="Adicionar">
 </form>
+<?php $render('baseList', ['list' => $list, 'keyword' => $keyword]);
