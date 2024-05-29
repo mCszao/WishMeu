@@ -21,8 +21,9 @@ class WishListController extends Controller {
                 $desc = $result['description'];
                 $endpoint = "edit/".$slug;
             }
-        }            
-        $this->render('addWishList', ['title' => 'Nova Lista, Meu?','name' => $name, 'desc' => $desc, 'endpoint' => $endpoint]);
+        }
+        $list = WishList::loadResumeLists();            
+        $this->render('addWishList', ['title' => 'Nova Lista, Meu?','name' => $name, 'desc' => $desc, 'endpoint' => $endpoint, 'list' => $list]);
     }
 
     public function save(){
@@ -47,7 +48,7 @@ class WishListController extends Controller {
         if($name) {
             WishList::update(['name' => $name, 'description' => $desc])->where('id', $args['id'])->execute();
         }
-        $this->redirect('/');
+        $this->redirect('/list/add');
     }
 
     public function details($args){
@@ -65,6 +66,6 @@ class WishListController extends Controller {
         ItemToList::delete()->where('id_list', $idList)->execute();
         WishList::delete()->where('id', $idList)->execute();
         
-        $this->redirect('/');
+        $this->redirect('/list/add');
     }
 }

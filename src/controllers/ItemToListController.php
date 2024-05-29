@@ -21,7 +21,9 @@ class ItemToListController extends Controller {
     public function delete($args){
         $id = $args['id'];
         $idList = ItemToList::select('id_list')->where('id', $id)->one();
-        ItemToList::delete()->where('id', $id)->execute();
+        if(!isset($idList)){
+            ItemToList::delete()->where('id', $id)->execute();
+        }
         
         $this->redirect('/list/'.$idList['id_list']);
     }

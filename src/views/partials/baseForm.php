@@ -64,6 +64,7 @@
         transition: ease-in 0.2s;
         box-shadow: 5px 5px 0px 1px #000000;
     }
+    
 </style>
 <h2><?=$keywordPT?></h2>
 <form method="POST" action="<?=$base.'/'.$keyword.'/'.$endpoint?>">
@@ -77,3 +78,5 @@
     </div>
     <input type="submit" value="Adicionar">
 </form>
+
+<?php $render('baseList', ['list' => $list, 'keyword' => $keyword]);
