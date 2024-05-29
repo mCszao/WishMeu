@@ -55,4 +55,28 @@ class ItemController extends Controller {
     
     }
 
+    public function edit($args){
+        $name = filter_input(INPUT_POST, 'name');
+        $obs = filter_input(INPUT_POST, 'observations');
+        $categorie = filter_input(INPUT_POST, 'categorie');
+
+        $idItem = $args['id'];
+        if($name && $categorie){
+            Item::update([
+                'name' => $name,
+                'observations' => $obs,
+                'category_id' => $categorie
+                ])->where('id', $idItem)->execute();
+        }
+        $this->redirect('/item/add');
+    }
+
+    public function delete($args){
+        $id = $args['id'];
+        if($id){
+            Item::delete()->where('id', $id)->execute();
+        }
+        $this->redirect('/item/add');
+    }
+
 }

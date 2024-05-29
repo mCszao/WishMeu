@@ -66,7 +66,7 @@
     }
 
 </style>
-<form method="POST" action="<?=$base.'/'.$keyword?>/save">
+<form method="POST" action="<?=$base.'/'.$keyword.'/'.$endpoint?>">
     <div>
         <input type="text" name="name" id="name" placeholder="Nome" value="<?=$name?>"/>
         <label for="name">Nome</label>
@@ -84,4 +84,4 @@
     </div>
     <input type="submit" value="Adicionar">
 </form>
-<?php $render('baseList', ['list' => $list, 'keyword' => $keyword]);
+<?php $render('baseList', ['list' => $list, 'keyword' => $keyword, 'keywordPT' => $keywordPT]);

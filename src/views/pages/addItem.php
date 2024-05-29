@@ -9,4 +9,4 @@
 </style>
 <h2>Item</h2>
 
-<?php $render('itemForm', ['keyword' => 'item', 'keywordPT' => 'Item', 'listCategorie' => $categories, 'list' => $list, 'name' => $name, 'obs' => $obs, 'selectedCat' => $selectedCat])?>
+<?php $render('itemForm', ['keyword' => 'item', 'keywordPT' => 'Item', 'listCategorie' => $categories, 'list' => $list, 'name' => $name, 'obs' => $obs, 'selectedCat' => $selectedCat, 'endpoint' => $endpoint, ])?>
