@@ -11,9 +11,24 @@ class ItemController extends Controller {
         $items = $items = Item::select(['items.id', 'items.name', 'observations', 'c.name as cat_name'])->innerJoin('categories as c', 'c.id', '=', 'items.category_id')->get();
         echo json_encode($items);
     }
-    public function add(){
+    public function add($args){
+        $endpoint = "save";
+        $name = "";
+        $obs = "";
+        $cat = "";
+        if($args) {
+            $slug = $args['id'];
+            $result = Item::select()->where('id', $slug)->first();
+            if(count($result) > 0) {
+                $name = $result['name'];
+                $obs = $result['observations'];
+                $cat = $result['category_id'];
+                $endpoint = "edit/".$slug;
+            }
+        }
+        $list = Item::select()->get();  
         $categories = Categorie::select(['id','name'])->get();
-        $this->render('addItem', ['categories' => $categories]);
+        $this->render('addItem', ['categories' => $categories, 'endpoint' => $endpoint, 'list' => $list, 'name' => $name, 'obs' => $obs, 'selectedCat' => $cat]);
     }
 
     public function save(){

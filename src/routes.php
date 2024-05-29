@@ -20,9 +20,10 @@ $router->post('/categorie/save', 'CategorieController@save');
 //Item routes
 $router->get('/item', 'ItemController@index');
 $router->get('/item/add', 'ItemController@add');
+$router->get('/item/add/{id}', 'ItemController@add');
 $router->post('/item/save', 'ItemController@save');
 $router->post('/item/edit/{id}', 'ItemController@edit');
-$router->get('/item/add/{id}', 'ItemController@delete');
+$router->get('/item/delete/{id}', 'ItemController@delete');
 //ItemList correlation routes
 $router->post('/item/additemlist', 'ItemToListController@addItemToList');
 $router->post('/item/edititemlist/{id}', 'ItemToListController@edit');
