@@ -1,1 +1,1 @@
-<?php $render('baseForm', ['title' => $title, 'keyword' => 'categorie', 'keywordPT' => 'Categoria','name' => $name, 'desc' => $desc, 'endpoint' => $endpoint])?>
+<?php $render('baseForm', ['title' => 'Nova Categoria', 'keyword' => 'categorie', 'keywordPT' => 'Categoria','name' => $name, 'desc' => $desc, 'endpoint' => $endpoint, 'list' => $list])?>
