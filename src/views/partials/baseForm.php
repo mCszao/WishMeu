@@ -5,14 +5,16 @@
         gap: 1rem; 
         flex-direction: column;
         align-items: center;
-        background-color: #fff;
         padding: 1rem;
         border-radius: .5rem;
         font-size: 1.2rem;
+        width: 40vw;
     }
 
     form div {
+        left: 2%;
         position: relative;
+        width: 100%;
     }
 
     label {
@@ -64,9 +66,17 @@
         transition: ease-in 0.2s;
         box-shadow: 5px 5px 0px 1px #000000;
     }
+    .sub_wo {
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 5vmin;
+        color: #02735E;
+        -webkit-text-stroke: .03em black;
+        text-shadow: .05em .05em 0 rgba(0,0,0,1);
+    }
     
 </style>
-<h2><?=$keywordPT?></h2>
+<h2 class="sub_wo"><?=$keywordPT?></h2>
 <form method="POST" action="<?=$base.'/'.$keyword.'/'.$endpoint?>">
     <div>
         <input type="text" name="name" id="name" placeholder="Nome" value="<?=$name?>"/>

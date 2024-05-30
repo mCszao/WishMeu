@@ -9,7 +9,7 @@ class WishList extends Model {
     }
 
     public static function loadResumeLists(){
-        return WishList::select()->get();
+        return WishList::select()->where('conclued', 0)->get();
     }
 
     public static function loadInfoList($id){
