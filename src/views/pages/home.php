@@ -99,7 +99,7 @@
                 </a>
                 <a class="link-item" href="<?=$base.'/'.'list'.'/'.$item['id']?>">
                     <div class="list-item" id="<?=$item['id']?>">
-                        <h3 class="title" id="<?='title'.$item['id']?>" ><?=$item['name']?></h3>
+                        <h3 class="title" id="<?='title'.$item['id']?>" > <?=(strlen($item['name']) > 40 ) ? substr($item['name'], 0, 40).'...' : $item['name']?></h3>
                         <p class="paragraph">
                             <?=(strlen($item['description']) > 16 ) ? substr($item['description'], 0, 30).'...' : $item['description']?>
                         </p>

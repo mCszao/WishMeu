@@ -68,4 +68,32 @@ class WishListController extends Controller {
         
         $this->redirect('/list/add');
     }
+
+    public function copyList($args){
+        $origin = $args['id'];
+        $listName = "Lista copiada da ".$origin." ".md5($listName);
+        
+        WishList::insert([
+            'name' => $listName,
+            'description' => ""
+        ])->execute();
+
+        $newList = WishList::select()->where('name', $listName)->first();
+
+        if(!empty($newList)){
+            $newListId = $newList['id'];
+            $correlationItems = ItemToList::select()->where('id_list', $origin)->execute();
+            foreach ($correlationItems as $data) {
+                ItemToList::insert([
+                    'id_list' => $newListId,
+                    'id_item' => $data['id_item'],
+                    'max_value' => $data['max_value'],
+                    'min_value' => $data['min_value']
+                ])->execute();
+            }
+        }
+        
+        $this->redirect('/');
+
+    }
 }

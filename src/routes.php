@@ -6,6 +6,7 @@ $router = new Router();
 $router->get('/', 'HomeController@index');
 //List routes
 $router->get('/list/add', 'WishListController@add');
+$router->get('/list/copy/{id}', 'WishListController@copyList');
 $router->get('/list/add/{id}', 'WishListController@add');
 $router->post('/list/save', 'WishListController@save');
 $router->post('/list/edit/{id}', 'WishListController@edit');

@@ -92,6 +92,11 @@
 
 <section class="container">
   <header class="container__header">
+    <a href="<?=$base."/list/copy/".$idList?>">
+      <abbr title="Copiar Lista">
+        <img src="https://icons.iconarchive.com/icons/custom-icon-design/mono-general-2/128/copy-icon.png" width="15" height="15">
+      </abbr>
+    </a>
     <h1 class="container__header__title"><?=$name?></h1>
     <button class="container__header__button open-add-item" onClick="openModal()">Adicionar Item</button>
   </header> 
