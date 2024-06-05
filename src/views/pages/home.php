@@ -32,6 +32,7 @@
     flex-direction: column;
     padding: 1rem;
     height: 30vh;
+    width: 320px;
     border-radius: .2rem;
 }
 
