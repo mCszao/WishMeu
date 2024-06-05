@@ -46,7 +46,6 @@
         <?php if($keyword === 'categorie' && $item['id'] == 17) continue;?>
         <div class="section-item">
             <p><strong><?=$item['name']?></strong></p>
-            <i><?=(!isset($item['description'])) ? $item['observations'] : $item['description']?></i>
             <div>
                 <a class="edit-link" href="<?=$base.'/'.$keyword.'/add/'.$item['id']?>">Editar</a>
                 <a class="button-delete" href="<?=$base.'/'.$keyword.'/delete/'.$item['id']?>" onClick="return confirm('Deseja realmente excluir essa <?=$keywordPT?>')">Deletar</a>
