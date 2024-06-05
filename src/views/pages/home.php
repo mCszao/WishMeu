@@ -9,6 +9,20 @@
     gap: 1rem;
     
 }
+@media(max-width: 600px){
+    .list-container {
+        display: block;
+        width: 60vw;
+    }
+    .item-container {
+        width: 30vw;
+    }
+
+    .list-item{
+        width: 60vw;
+    }
+    
+}
 
 .list-item{
     border: 1px solid #000000;
@@ -18,7 +32,6 @@
     flex-direction: column;
     padding: 1rem;
     height: 30vh;
-    width: 20vw;
     border-radius: .2rem;
 }
 
