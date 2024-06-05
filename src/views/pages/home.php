@@ -2,7 +2,7 @@
 
 <style>
 .list-container {
-    margin: 5rem auto;
+    margin: 5rem 5rem;
     display: flex;
     flex-wrap: wrap;
     height: 80vh;
@@ -12,15 +12,9 @@
 @media(max-width: 600px){
     .list-container {
         display: block;
-        width: 60vw;
-    }
-    .item-container {
-        width: 30vw;
+        width: 90vw;
     }
 
-    .list-item{
-        width: 60vw;
-    }
     
 }
 
