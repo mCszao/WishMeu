@@ -16,6 +16,6 @@
             <?php endforeach; ?>  
         </select>
     </div>
-    <input type="submit" value="Adicionar">
+    <input type="submit" value="<?=(str_contains($endpoint,"edit") ) ? "Atualizar" : "Adicionar" ?>">
 </form>
 <?php $render('baseList', ['list' => $list, 'keyword' => $keyword, 'keywordPT' => $keywordPT]);

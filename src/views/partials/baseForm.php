@@ -10,7 +10,7 @@
         <input type="text" name="desc" id="desc" placeholder="Descrição"value="<?=$desc?>"/>
         <label for="desc">Descrição</label>
     </div>
-    <input type="submit" value="Adicionar">
+    <input type="submit" value="<?=(str_contains($endpoint,"edit") ) ? "Atualizar" : "Adicionar" ?>">
 </form>
 
 <?php $render('baseList', ['list' => $list, 'keyword' => $keyword]);
