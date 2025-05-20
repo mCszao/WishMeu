@@ -4,19 +4,18 @@
         box-shadow: 1px 3px 15px 2px #000000;
         display: flex;
         padding: 1rem;
-        border-radius: 0 0 1rem 0;
+        border-radius: 1rem;
         height: auto;
         position: fixed;
         z-index: 999;
-        top: 0;
-        left: 0;
+        bottom: 5%;
         color: white;
         gap: 1rem;
     }
 
     
     .menu-container:hover{
-        box-shadow: 1px 3px 15px 2px #fff;
+        box-shadow: 1px 3px 15px 2px #034159;
 
         transition: ease-in .8s;
     }
@@ -25,7 +24,6 @@
     .menu-item {
         opacity: 1;
         color: #02735E;
-        
         
     }
 
