@@ -65,7 +65,7 @@ async function filterItems(idList){
     let items = await fetch('http://localhost/wishmeu/public/item', {
             method: 'GET',
         }).then(response => response.json());
-    const filteredItems = items.filter(item => item.name.toLowerCase().match(document.getElementById('search').value.toLowerCase()))
+    const filteredItems = items.filter(item => item.name.toLowerCase().match(document.getElementById('search').value.toLowerCase()) || item.cat_name.toLowerCase().match(document.getElementById('search').value.toLowerCase()))
     const listItemsView = document.querySelector('.modal__ul');
     listItemsView.innerHTML = "";
     if(filteredItems.length > 0) {
