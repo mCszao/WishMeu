@@ -24,7 +24,6 @@
     .menu-item {
         opacity: 1;
         color: #02735E;
-        
     }
 
    

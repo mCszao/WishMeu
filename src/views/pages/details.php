@@ -13,6 +13,11 @@
   flex: 2 1 auto;
 }
 
+.container__header__description {
+  font-size: 1.5rem;
+  flex: 2 1 auto;
+}
+
 .table {
   text-align: center;
   color: white;
@@ -100,6 +105,7 @@
     <h1 class="container__header__title"><?=$name?></h1>
     <button class="container__header__button open-add-item" onClick="openModal()">Adicionar Item</button>
   </header> 
+  <h3 class="container__header__description"><?=$description?></h3>
   <table class="table">
     <thead class="table__head">
       <th class="table__head__column">Editar/Deletar</th>
@@ -127,7 +133,7 @@
                         <button class="table__content__row__data__button" onClick="editRow(<?=$correlationId?>)">
                             <img src="https://icons.iconarchive.com/icons/arturo-wibawa/akar/128/edit-icon.png" width="24" height="24" >
                         </button>
-                        <a class="img-delete" href="<?="$base/item/deleteitemlist/$correlationId"?>" onClick="return confirm('Você quer mesmo deletar esse item?')">
+                        <a class="img-delete" id="<?=$correlationId?>" href="<?="$base/item/deleteitemlist/$correlationId"?>" onClick="return confirm('Você quer mesmo deletar esse item?')">
                             <img src="https://icons.iconarchive.com/icons/pictogrammers/material/128/delete-alert-icon.png" width="24" height="24">
                         </a>
                     </td>

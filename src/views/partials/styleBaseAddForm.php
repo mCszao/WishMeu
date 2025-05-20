@@ -17,7 +17,9 @@
     }
 
     label {
-        background-color: #fff;
+        background: linear-gradient(to bottom, #02735E 32%, #ffffff 48%);
+        padding: .3rem;
+        border-radius: 1rem;
         opacity: 0;
         font-weight: 600;
         position: absolute;
