@@ -1,18 +1,21 @@
 <?php
 namespace src;
 
+use Dotenv\Dotenv;
+
 class Config {
-    const BASE_DIR = '/wishmeu/public';
+    private static $initialized = false;
 
-    const DB_DRIVER = 'mysql';
-    const DB_HOST = 'localhost';
-    const DB_DATABASE = 'wishmeu';
-    const DB_USER = 'root';
-    const DB_PASSWORD = '*Root1234';
-    const DB_PORT = '3310';
+    private static function loadEnv(): void {
+        if (!self::$initialized) {
+            $dotenv = Dotenv::createImmutable(dirname(__DIR__)); 
+            $dotenv->load();
+            self::$initialized = true;
+        }
+    }
 
-
-    const DEFAULT_ACTION = 'index';
-    const ERROR_CONTROLLER = 'ErrorController';
+    public static function get($key) {
+        self::loadEnv();
+        return $_ENV[$key] ?? null;
+    }
 }
-

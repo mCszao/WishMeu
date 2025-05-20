@@ -16,7 +16,7 @@ class Controller {
         if($_SERVER['SERVER_PORT'] != '80') {
             $base .= ':'.$_SERVER['SERVER_PORT'];
         }
-        $base .= Config::BASE_DIR;
+        $base .= Config::get('BASE_DIR');
         
         return $base;
     }

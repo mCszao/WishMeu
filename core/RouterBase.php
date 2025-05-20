@@ -10,8 +10,8 @@ class RouterBase {
         $url = Request::getUrl();
 
         // Define os itens padrão
-        $controller = Config::ERROR_CONTROLLER;
-        $action = Config::DEFAULT_ACTION;
+        $controller = Config::get('ERROR_CONTROLLER');
+        $action = Config::get('DEFAULT_ACTION');
         $args = [];
 
         if(isset($routes[$method])) {

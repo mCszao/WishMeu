@@ -1,0 +1,48 @@
+# Ignora arquivos e pastas relacionadas ao Composer
+/vendor/
+composer.lock
+
+# Ignora arquivos de ambiente
+.env
+.env.local
+
+# Ignora cache e arquivos temporários
+*.log
+*.cache
+*.tmp
+
+# Ignora diretórios do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignora IDEs/editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignora arquivos de testes locais
+.phpunit.result.cache
+
+# Ignora pasta de builds, caso haja
+/build/
+dist/
+node_modules/
+
+# Ignora cobertura de testes
+coverage/
+
+# Ignora backups ou arquivos criados por editores
+*.bak
+*.swp
+*.orig
+
+# Ignora arquivos de debug
+debug.log
+
+# Ignora logs de erros comuns
+error_log
+
+# Ignora diretórios públicos gerados dinamicamente (ajuste conforme seu projeto)
+public/storage/
+storage/
